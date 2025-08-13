@@ -29,6 +29,18 @@ def parse_task(args, cfg, cfg_train, sim_params):
     cfg_task = cfg["env"]
     cfg_task["seed"] = cfg["seed"]
 
+    '''
+    TASK_REGISTRY = {
+        'HumanoidAMPGetup': HumanoidAMPGetup,
+        'HumanoidAMP': HumanoidAMP,
+        # ... 其他任务
+    }
+
+    task_class = TASK_REGISTRY.get(args.task)
+    if task_class:
+        task = task_class(cfg=cfg, ...)
+    '''
+
     try:
         task = eval(args.task)(
             cfg=cfg,
